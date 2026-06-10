@@ -5,8 +5,13 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				black: "#000000",
+				background: "#000000",
 				card: "#0E0D12",
+				surface: "#1A1825",
+				border: "#2A2838",
+				foreground: "#F1F0F5",
+				"foreground-muted": "#9896A4",
+				"foreground-faint": "#5C5A68",
 				work: {
 					DEFAULT: "#0EA5E9",
 					dark: "#0369A1",
@@ -23,10 +28,6 @@ module.exports = {
 					DEFAULT: "#84CC16",
 					dark: "#4D7C0F",
 				},
-				surface: "#1A1825",
-				border: "#2A2838",
-				textPrimary: "#F1F0F5",
-				textSecondary: "#9896A4",
 			},
 			fontFamily: {
 				"outfit-thin": ["Outfit_100Thin"],
