@@ -1,6 +1,6 @@
-# Keystone Tracker
+# Keystone
 
-Keystone Tracker is a modern, high-performance React Native application designed to track the four key aspects of a balanced day: Work Hours, Expenses, Sleep, and Daily Habits/Tasks. By replacing fragmented spreadsheets with a unified, local-first mobile interface, Keystone enables friction-free habit logging and powerful visualization.
+Keystone is a modern, high-performance React Native application designed to track the four key aspects of a balanced day: Work Hours, Expenses, Sleep, and Daily Habits/Tasks. By replacing fragmented spreadsheets with a unified, local-first mobile interface, Keystone enables friction-free habit logging and powerful visualization.
 
 ## Tech Stack
 - React Native & TypeScript
@@ -11,6 +11,7 @@ Keystone Tracker is a modern, high-performance React Native application designed
 ## Task Checklist
 - [x] Prerequisites & Environment Verification
 - [x] Initialize Expo Router Project
+- [x] Configure Git & Remote Repository
 - [ ] Configure Tailwind CSS & Global Theme
 - [ ] Implement Feature 1: Work Clock
 - [ ] Implement Feature 2: Expenses Tracking
