@@ -1,6 +1,6 @@
 # Keystone
 
-Keystone is a modern, high-performance React Native application designed to track the four key aspects of a balanced day: Work Hours, Expenses, Sleep, and Daily Habits/Tasks. By replacing fragmented spreadsheets with a unified, local-first mobile interface, Keystone enables friction-free habit logging and powerful visualization.
+Keystone is a fast and functional mobile app for tracking work hours, expenses, sleep, and habits in one place. Built with React Native, Expo, and TypeScript, it's an offline-first dashboard that replaces fragmented spreadsheets with powerful visualizations.
 
 ## Tech Stack
 - React Native & TypeScript
