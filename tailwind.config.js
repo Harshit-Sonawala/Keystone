@@ -1,16 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./utils/**/*.{js,jsx,ts,tsx}"
+  ],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Outfit_500Medium", "sans-serif"],
-        regular: ["Outfit_400Regular", "sans-serif"],
-        medium: ["Outfit_500Medium", "sans-serif"],
-        semibold: ["Outfit_600SemiBold", "sans-serif"],
-        bold: ["Outfit_700Bold", "sans-serif"],
-      },
       colors: {
         background: '#000000',
         card: '#0E0D12',
