@@ -1,98 +1,100 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import React from 'react';
+import { ScrollView, Text, View, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <ScrollView className="flex-1 bg-black">
+      <SafeAreaView className="flex-1 px-6 py-8">
+        <View className="mb-8">
+          <Text className="text-3xl font-extrabold text-white">Keystone</Text>
+          <Text className="text-base text-neutral-400 mt-1">
+            Track your day, build your habits.
+          </Text>
+        </View>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+        <View className="space-y-4 gap-y-4">
+          {/* Work Clock Card */}
+          <Pressable className="bg-card border-l-4 border-work-primary p-5 rounded-2xl shadow-lg active:opacity-80">
+            <View className="flex-row justify-between items-center">
+              <View>
+                <Text className="text-work-primary text-xs font-bold uppercase tracking-wider">
+                  Work Clock
+                </Text>
+                <Text className="text-white text-lg font-bold mt-1">
+                  0h 0m logged
+                </Text>
+                <Text className="text-neutral-400 text-sm mt-1">
+                  Min target: 8h | Clocked Out
+                </Text>
+              </View>
+              <View className="bg-work-dark/20 px-3 py-2 rounded-xl">
+                <Text className="text-work-primary font-bold">Clock In</Text>
+              </View>
+            </View>
+          </Pressable>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+          {/* Expenses Card */}
+          <Pressable className="bg-card border-l-4 border-expense-primary p-5 rounded-2xl shadow-lg active:opacity-80">
+            <View className="flex-row justify-between items-center">
+              <View>
+                <Text className="text-expense-primary text-xs font-bold uppercase tracking-wider">
+                  Expenses
+                </Text>
+                <Text className="text-white text-lg font-bold mt-1">
+                  ₹0.00 spent
+                </Text>
+                <Text className="text-neutral-400 text-sm mt-1">
+                  7 categories configured
+                </Text>
+              </View>
+              <View className="bg-expense-dark/20 px-3 py-2 rounded-xl">
+                <Text className="text-expense-primary font-bold">Log</Text>
+              </View>
+            </View>
+          </Pressable>
 
-        {Platform.OS === 'web' && <WebBadge />}
+          {/* Sleep Card */}
+          <Pressable className="bg-card border-l-4 border-sleep-primary p-5 rounded-2xl shadow-lg active:opacity-80">
+            <View className="flex-row justify-between items-center">
+              <View>
+                <Text className="text-sleep-primary text-xs font-bold uppercase tracking-wider">
+                  Sleep Tracking
+                </Text>
+                <Text className="text-white text-lg font-bold mt-1">
+                  No sleep log today
+                </Text>
+                <Text className="text-neutral-400 text-sm mt-1">
+                  Press to log wake-up or bed time
+                </Text>
+              </View>
+              <View className="bg-sleep-dark/20 px-3 py-2 rounded-xl">
+                <Text className="text-sleep-primary font-bold">Sleep</Text>
+              </View>
+            </View>
+          </Pressable>
+
+          {/* Daily Habits Card */}
+          <Pressable className="bg-card border-l-4 border-habit-primary p-5 rounded-2xl shadow-lg active:opacity-80">
+            <View className="flex-row justify-between items-center">
+              <View>
+                <Text className="text-habit-primary text-xs font-bold uppercase tracking-wider">
+                  Daily Habits
+                </Text>
+                <Text className="text-white text-lg font-bold mt-1">
+                  0% Completed
+                </Text>
+                <Text className="text-neutral-400 text-sm mt-1">
+                  0 of 5 habits marked done
+                </Text>
+              </View>
+              <View className="bg-habit-dark/20 px-3 py-2 rounded-xl">
+                <Text className="text-habit-primary font-bold">View</Text>
+              </View>
+            </View>
+          </Pressable>
+        </View>
       </SafeAreaView>
-    </ThemedView>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
