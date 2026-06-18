@@ -45,3 +45,6 @@ example
 # local documentation
 React Native Reference.md
 
+# AI Coding Tools
+*.claude
+
