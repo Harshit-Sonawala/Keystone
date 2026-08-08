@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { WorkClock } from '@/components/WorkClock';
 import { Workday } from '@/types';
+import { useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const [currentWorkday, setCurrentWorkday] = useState<Workday | null>({
@@ -24,7 +24,7 @@ export default function HomeScreen() {
             Keystone Work Clock
           </Text>
           <Text className="text-base text-neutral-400">
-            Track your daily work hours.
+            Track daily work hours
           </Text>
         </View>
 
