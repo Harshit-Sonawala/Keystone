@@ -1,3 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'nativewind/theme';
+
+@theme {
+  --color-background: #000000;
+  --color-card: #0e0d12;
+
+  --color-work-primary: #0ea5e9;
+  --color-work-dark: #0369a1;
+
+  --color-expenses-primary: #10b981;
+  --color-expenses-dark: #047857;
+
+  --color-sleep-primary: #6366f1;
+  --color-sleep-dark: #4338ca;
+
+  --color-habits-primary: #84cc16;
+  --color-habits-dark: #4d7c0f;
+}
