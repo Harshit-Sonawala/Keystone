@@ -12,3 +12,11 @@ export const Spacing = {
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+export const TARGET_WORK_HOURS = 8;
+export const TARGET_WORK_MS = TARGET_WORK_HOURS * 60 * 60 * 1000;
+
+export const WORK_CLOCK_CONFIG = {
+  SIZE: 260,
+  STROKE_WIDTH: 12,
+} as const;

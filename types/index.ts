@@ -1,1 +1,1 @@
-export * from './WorkDay';
+export * from './Workday';

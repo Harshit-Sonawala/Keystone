@@ -1,18 +1,36 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { WorkClock } from '@/components/WorkClock';
+import { Workday } from '@/types';
 
 export default function HomeScreen() {
+  const [currentWorkday, setCurrentWorkday] = useState<Workday | null>({
+    id: `WD-${Date.now()}`,
+    clockIn: Date.now() - 2.5 * 60 * 60 * 1000, // Clocked in 2.5 hours ago
+    lunchStart: null,
+    lunchEnd: null,
+    extraClocks: [],
+    targetClockOut: Date.now() + 5.5 * 60 * 60 * 1000,
+    clockOut: null,
+    overtime: 0,
+  });
+
   return (
-    <View className="flex-1 bg-black">
-      <SafeAreaView className="flex-1 px-6 py-8">
-        <View className="mb-8">
-          <Text className="text-3xl font-semibold text-white">Keystone Work Clock</Text>
+    <ScrollView className="flex-1 bg-black">
+      <SafeAreaView className="flex-1 px-6 py-6">
+        <View className="mb-4">
+          <Text className="text-3xl font-semibold text-white">
+            Keystone Work Clock
+          </Text>
           <Text className="text-base text-neutral-400 mt-1">
             Track your daily work hours.
           </Text>
         </View>
+
+        {/* Work Clock Circular Gauge */}
+        <WorkClock currentWorkday={currentWorkday} />
       </SafeAreaView>
-    </View>
+    </ScrollView>
   );
 }

@@ -1,4 +1,4 @@
-export interface WorkDay {
+export interface Workday {
   id: string; // Unique identifier formatted as "WD-timestamp"
   clockIn: number; // Unix timestamp in milliseconds when clocked in
   lunchStart: number | null; // Unix timestamp in milliseconds when lunch started (0 or null if not applicable/started)
