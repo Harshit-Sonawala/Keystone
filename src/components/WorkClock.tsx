@@ -1,21 +1,23 @@
 import { Workday } from '@/types';
 import {
-  Colors,
   TARGET_WORK_MS,
   calculateElapsedMs,
   formatDuration,
   formatTime,
 } from '@/utils';
+import { styled } from 'nativewind';
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
+
+const StyledCircle = styled(Circle);
 
 interface WorkClockProps {
   currentWorkday: Workday | null;
 }
 
 export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
-  const SIZE = 260;
+  const SIZE = 230;
   const STROKE_WIDTH = 15;
   const CENTER = SIZE / 2;
   const RADIUS = (SIZE - STROKE_WIDTH) / 2;
@@ -41,20 +43,20 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
         style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
       >
         {/* Background Track Circle */}
-        <Circle
+        <StyledCircle
           cx={CENTER}
           cy={CENTER}
           r={RADIUS}
-          stroke="#1F1B2E"
+          className="stroke-card-subtle"
           strokeWidth={STROKE_WIDTH}
           fill="transparent"
         />
         {/* Progress Circle */}
-        <Circle
+        <StyledCircle
           cx={CENTER}
           cy={CENTER}
           r={RADIUS}
-          stroke={Colors.work.primary}
+          className="stroke-work-primary"
           strokeWidth={STROKE_WIDTH}
           fill="transparent"
           strokeDasharray={CIRCUMFERENCE}
@@ -69,18 +71,18 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
 
       {/* Internal Text Metrics */}
       <View className="flex flex-col items-center justify-center gap-y-1">
-        <Text className="text-neutral-400 font-medium">{formatTime(now)}</Text>
-        <Text className="text-white text-4xl font-semibold">
+        <Text className="text-muted">{formatTime(now)}</Text>
+        <Text className="text-fg text-4xl font-semibold">
           {formatDuration(elapsedMs)}
         </Text>
-        <Text className="text-work-primary font-medium">
+        <Text className="text-work-primary">
           {currentWorkday?.clockIn && !currentWorkday?.clockOut
             ? currentWorkday.lunchStart && !currentWorkday.lunchEnd
               ? 'On Lunch Break'
               : 'Clocked In'
             : 'Clocked Out'}
         </Text>
-        <Text className="text-neutral-500 font-semibold tracking-widest">
+        <Text className="text-muted">
           {`${formatDuration(Math.max(0, TARGET_WORK_MS - elapsedMs))} Left`}
         </Text>
       </View>

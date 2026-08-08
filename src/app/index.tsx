@@ -17,19 +17,21 @@ export default function HomeScreen() {
   });
 
   return (
-    <ScrollView className="flex-1 bg-black">
-      <SafeAreaView className="flex-1 px-6 py-6 gap-y-6">
-        <View className="gap-y-1">
-          <Text className="text-base text-neutral-400 uppercase">
-            Welcome Back
-          </Text>
-          <Text className="text-3xl font-semibold text-white">
-            Keystone Work Clock
-          </Text>
+    <ScrollView className="flex-1 bg-bg">
+      <SafeAreaView>
+        <View className="flex flex-col gap-6 py-3">
+          {/* Header */}
+          <View className="flex flex-col gap-1 px-6">
+            <Text className="text-base text-muted uppercase">
+              Welcome Back, Harshit
+            </Text>
+            <Text className="text-3xl font-semibold text-fg">
+              Keystone Work Clock
+            </Text>
+          </View>
+          {/* Work Clock */}
+          <WorkClock currentWorkday={currentWorkday} />
         </View>
-
-        {/* Work Clock Circular Gauge */}
-        <WorkClock currentWorkday={currentWorkday} />
       </SafeAreaView>
     </ScrollView>
   );
