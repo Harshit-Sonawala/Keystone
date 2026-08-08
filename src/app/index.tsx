@@ -18,12 +18,12 @@ export default function HomeScreen() {
 
   return (
     <ScrollView className="flex-1 bg-black">
-      <SafeAreaView className="flex-1 px-6 py-6">
-        <View className="mb-4">
+      <SafeAreaView className="flex-1 px-6 py-6 gap-y-6">
+        <View className="gap-y-1">
           <Text className="text-3xl font-semibold text-white">
             Keystone Work Clock
           </Text>
-          <Text className="text-base text-neutral-400 mt-1">
+          <Text className="text-base text-neutral-400">
             Track your daily work hours.
           </Text>
         </View>

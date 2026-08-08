@@ -1,7 +1,6 @@
 import { Workday } from '@/types';
 import {
   Colors,
-  TARGET_WORK_HOURS,
   TARGET_WORK_MS,
   WORK_CLOCK_CONFIG,
   calculateElapsedMs,
@@ -29,6 +28,7 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
   }, []);
 
   const elapsedMs = calculateElapsedMs(currentWorkday, now);
+  const remainingMs = Math.max(0, TARGET_WORK_MS - elapsedMs);
   const progress = Math.min(Math.max(elapsedMs / TARGET_WORK_MS, 0), 1);
 
   const { SIZE, STROKE_WIDTH } = WORK_CLOCK_CONFIG;
@@ -44,7 +44,7 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
     : 'Clocked Out';
 
   return (
-    <View className="items-center justify-center relative my-5">
+    <View className="items-center justify-center relative py-5">
       <Svg width={SIZE} height={SIZE} className="absolute">
         {/* Background Track Circle */}
         <Circle
@@ -71,18 +71,16 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
       </Svg>
 
       {/* Internal Text Metrics */}
-      <View className="items-center justify-center w-52 h-52">
-        <Text className="text-neutral-400 text-sm font-medium mb-1">
-          {formatTime(now)}
-        </Text>
+      <View className="flex flex-col items-center justify-center w-52 h-52 gap-5">
+        <Text className="text-neutral-400">{formatTime(now)}</Text>
         <Text className="text-white text-4xl font-semibold">
           {formatDuration(elapsedMs)}
         </Text>
-        <Text className="text-work-primary text-sm font-medium mt-2">
+        <Text className="text-work-primary text-sm font-medium">
           {statusLabel}
         </Text>
-        <Text className="text-neutral-500 text-xs font-semibold tracking-widest mt-1">
-          TARGET: {TARGET_WORK_HOURS}H
+        <Text className="text-neutral-500 text-sm font-semibold">
+          {formatDuration(remainingMs).toUpperCase()} Left
         </Text>
       </View>
     </View>
