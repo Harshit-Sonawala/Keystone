@@ -47,7 +47,7 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
           cx={CENTER}
           cy={CENTER}
           r={RADIUS}
-          className="stroke-card-subtle"
+          className="stroke-border"
           strokeWidth={STROKE_WIDTH}
           fill="transparent"
         />

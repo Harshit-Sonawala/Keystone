@@ -11,7 +11,7 @@ export const Card = ({ className, children, style, ...props }: CardProps) => {
   return (
     <View
       className={cn(
-        'rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900',
+        'rounded-card border border-border bg-card p-5 shadow-card',
         className
       )}
       style={style}

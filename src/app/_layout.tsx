@@ -1,6 +1,10 @@
+import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
 import '../global.css';
-import { Slot } from 'expo-router';
 
 export default function RootLayout() {
-  return <Slot />;
+  return (
+    <ThemeProvider value={DarkTheme}>
+      <Stack screenOptions={{ headerShown: false }} />
+    </ThemeProvider>
+  );
 }

@@ -5,9 +5,16 @@
   /* Surface & Text Colors */
   --color-bg: #111111;
   --color-card: #1d1d1d;
-  --color-card-subtle: #2d2d2d;
+  --color-border: #2d2d2d;
   --color-fg: #ffffff;
-  --color-muted: #cccccc;
+  --color-muted: #888888;
+
+  /* Global Radius Tokens */
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+
+  /* Global Shadow Tokens */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
 
   /* Feature / Accent Colors */
   --color-work-primary: #0ea5e9;
@@ -19,4 +26,3 @@
   --color-habit-primary: #84cc16;
   --color-habit-dark: #4d7c0f;
 }
-

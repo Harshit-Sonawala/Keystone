@@ -1,5 +1,17 @@
 import { Platform } from 'react-native';
 
+export const COLORS = {
+  bg: '#111111',
+  card: '#1d1d1d',
+  border: '#2d2d2d',
+  fg: '#ffffff',
+  muted: '#71717a',
+  work: '#0ea5e9',
+  expense: '#10b981',
+  sleep: '#6366f1',
+  habit: '#84cc16',
+} as const;
+
 export const Spacing = {
   half: 2,
   one: 4,
