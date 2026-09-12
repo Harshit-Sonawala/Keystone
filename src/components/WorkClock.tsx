@@ -51,6 +51,7 @@ export const WorkClock: React.FC<WorkClockProps> = ({ currentWorkday }) => {
           strokeWidth={STROKE_WIDTH}
           fill="transparent"
         />
+
         {/* Progress Circle */}
         <StyledCircle
           cx={CENTER}

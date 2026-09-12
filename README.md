@@ -15,6 +15,7 @@ Keystone is a fast and functional mobile app for tracking work hours, expenses, 
 - [x] Initialize Expo Router Project
 - [x] Configure Git & Remote Repository
 - [x] Configure Tailwind CSS & Global Theme
+- [ ] Build global navigation layout
 - [ ] Implement Feature 1: Work Clock
 - [ ] Implement Feature 2: Expenses Tracking
 - [ ] Implement Feature 3: Sleep Tracking
